@@ -23,6 +23,17 @@ class MessagesListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: MessageController.messagesWereUpdatedNotification, object: nil)
+        
+        MessageController.fetchMessages()
+    }
+    
+    func refreshViews() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -31,7 +42,6 @@ class MessagesListTableViewController: UITableViewController {
         return MessageController.messages.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath)
 

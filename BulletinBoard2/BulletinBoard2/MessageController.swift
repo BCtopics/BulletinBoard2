@@ -17,7 +17,11 @@ class MessageController {
     
     //MARK: - Properties
     
-    static var messages: [Message] = []
+    static var messages: [Message] = [] {
+        didSet {
+            NotificationCenter.default.post(name: messagesWereUpdatedNotification, object: self)
+        }
+    }
     
     //MARK: - Fetch/Post
     
