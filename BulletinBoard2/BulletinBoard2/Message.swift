@@ -27,7 +27,7 @@ class Message {
     
     //MARK: - Initializers
     
-    init(text: String, timestamp: Date) {
+    init(text: String, timestamp: Date = Date()) {
         self.text = text
         self.timestamp = timestamp
     }
