@@ -52,8 +52,9 @@ class MessagesListTableViewController: UITableViewController {
     
     @IBAction func submitMessageButtonTapped(_ sender: Any) {
         
+        guard let text = messageTextField.text else { return }
         
-        
+        MessageController.addMessageWith(text: text)
     }
     
 }

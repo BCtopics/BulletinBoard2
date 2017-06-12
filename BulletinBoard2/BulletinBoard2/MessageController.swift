@@ -35,4 +35,32 @@ class MessageController {
         
     }
     
+    static func fetchMessages() {
+        
+        // Doesn't filter the messages. We just want all of the messages fetched.
+        let predicate = NSPredicate(value: true)
+        
+        let query = CKQuery(recordType: Message.typeKey, predicate: predicate)
+        
+        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { (records, error) in
+            
+            if let error = error {
+                NSLog("Error fetching messages: \(error.localizedDescription)")
+            }
+            
+            guard let records = records else { return }
+            
+            let messages = records.flatMap { Message(cloudKitRecord: $0) }
+            
+            self.messages = messages
+        }
+        
+    }
+    
 }
+
+
+
+
+
+
