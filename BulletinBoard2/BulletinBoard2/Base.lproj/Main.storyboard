@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Messages List Table View Controller-->
         <scene sceneID="iYN-gv-b2V">
             <objects>
-                <tableViewController id="IMg-iY-FHp" sceneMemberID="viewController">
+                <tableViewController id="IMg-iY-FHp" customClass="MessagesListTableViewController" customModule="BulletinBoard2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rUN-eT-f2S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +24,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IK8-HS-p76">
                                     <rect key="frame" x="318" y="21" width="49" height="32"/>
                                     <state key="normal" title="Submit"/>
+                                    <connections>
+                                        <action selector="submitMessageButtonTapped:" destination="IMg-iY-FHp" eventType="touchUpInside" id="UUZ-eG-RHB"/>
+                                    </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTz-Uy-arL">
                                     <rect key="frame" x="8" y="22" width="302" height="30"/>
@@ -74,6 +77,9 @@
                             <outlet property="delegate" destination="IMg-iY-FHp" id="zHs-bq-Y27"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="messageTextField" destination="mTz-Uy-arL" id="gr1-EY-RfK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qyu-E8-lpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
