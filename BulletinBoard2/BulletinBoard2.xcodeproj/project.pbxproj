@@ -63,7 +63,6 @@
 		6B8EC1501EEEF84A004B0426 /* BulletinBoard2 */ = {
 			isa = PBXGroup;
 			children = (
-				6B8EC1631EEEF84F004B0426 /* BulletinBoard2.entitlements */,
 				6B8EC1511EEEF84A004B0426 /* AppDelegate.swift */,
 				6B8EC16F1EEEFE63004B0426 /* ModelControllers */,
 				6B8EC16C1EEEFADC004B0426 /* Models */,
@@ -84,6 +83,7 @@
 		6B8EC1671EEEF871004B0426 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6B8EC1631EEEF84F004B0426 /* BulletinBoard2.entitlements */,
 				6B8EC1581EEEF84A004B0426 /* Assets.xcassets */,
 				6B8EC15A1EEEF84A004B0426 /* LaunchScreen.storyboard */,
 				6B8EC15D1EEEF84A004B0426 /* Info.plist */,
@@ -366,6 +366,7 @@
 				6B8EC1621EEEF84A004B0426 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

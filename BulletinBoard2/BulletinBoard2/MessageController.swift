@@ -61,6 +61,36 @@ class MessageController {
         
     }
     
+    //MARK: - CKSubscriptions
+    
+    static func subscribeToCreationOfMessages() {
+        
+        // Create predicate to filter/sort by
+        let predicate = NSPredicate(value: true)
+        
+        // Create the subscription
+        let subscription = CKQuerySubscription(recordType: Message.typeKey, predicate: predicate, options: .firesOnRecordCreation)
+        
+        // Set up notification info
+        let notificationInfo = CKNotificationInfo()
+        
+        notificationInfo.alertBody = "There is a new message in the bulletin board"
+        notificationInfo.soundName = "default"
+        notificationInfo.shouldSendContentAvailable = true
+        
+        // Attach the notification to the subscription
+        subscription.notificationInfo = notificationInfo
+        
+        // Send the subscription to CloudKit
+        CKContainer.default().publicCloudDatabase.save(subscription) { (_, error) in
+            if let error = error {
+                NSLog("Error saving created subscription to CloudKit \(error.localizedDescription)")
+            }
+        }
+        
+    }
+    
+    
 }
 
 
